@@ -3,25 +3,113 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-display: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-up-delay-200 {
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-up-delay-500 {
+    animation: fadeInUp 1s ease 0.5s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-up-delay-800 {
+    animation: fadeInUp 1s ease 0.8s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-up-delay-1100 {
+    animation: fadeInUp 1s ease 1.1s forwards;
+    opacity: 0;
+  }
+
+  .hero-grain {
+    background-image:
+      radial-gradient(
+        circle at 12% 18%,
+        rgba(200, 168, 130, 0.12) 0.5px,
+        transparent 0.5px
+      ),
+      radial-gradient(
+        circle at 68% 42%,
+        rgba(245, 236, 215, 0.08) 0.5px,
+        transparent 0.5px
+      ),
+      radial-gradient(
+        circle at 34% 72%,
+        rgba(184, 145, 42, 0.1) 0.5px,
+        transparent 0.5px
+      ),
+      radial-gradient(
+        circle at 88% 8%,
+        rgba(200, 168, 130, 0.09) 0.5px,
+        transparent 0.5px
+      ),
+      radial-gradient(
+        circle at 52% 55%,
+        rgba(245, 236, 215, 0.07) 0.5px,
+        transparent 0.5px
+      ),
+      radial-gradient(
+        circle at 22% 88%,
+        rgba(184, 145, 42, 0.08) 0.5px,
+        transparent 0.5px
+      );
+    background-size:
+      28px 28px,
+      32px 32px,
+      24px 24px,
+      36px 36px,
+      30px 30px,
+      26px 26px;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply font-body bg-caffe-cream text-caffe-espresso antialiased;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-caffe-gold;
   }
 }

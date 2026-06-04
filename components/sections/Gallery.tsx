@@ -1,0 +1,44 @@
+import GalleryClient from "@/components/sections/GalleryClient";
+import AnimatedSectionHeader from "@/components/ui/AnimatedSectionHeader";
+import { catalogToFallbackProducts } from "@/lib/product-catalog";
+import { isSupabaseConfigured } from "@/lib/supabase";
+import { getProducts } from "@/lib/queries";
+import type { Product } from "@/types";
+
+const FALLBACK_PRODUCTS = catalogToFallbackProducts();
+
+export default async function Gallery() {
+  let products: Product[] = FALLBACK_PRODUCTS;
+
+  if (isSupabaseConfigured()) {
+    const fetched = await getProducts();
+    if (fetched.length > 0) {
+      products = fetched;
+    }
+  }
+
+  return (
+    <section
+      id="cardapio"
+      className="relative overflow-hidden bg-caffe-dark py-20 sm:py-24 lg:py-32"
+    >
+      <div
+        className="hero-grain pointer-events-none absolute inset-0 opacity-40"
+        aria-hidden
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        <AnimatedSectionHeader
+          tag="O que oferecemos"
+          title="Nosso Cardápio"
+          tagClassName="font-body text-sm font-light uppercase tracking-widest text-caffe-gold"
+          titleClassName="mt-4 font-display text-4xl font-bold text-caffe-cream sm:text-5xl"
+        />
+
+        <div className="mt-10 sm:mt-14">
+          <GalleryClient products={products} />
+        </div>
+      </div>
+    </section>
+  );
+}

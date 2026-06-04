@@ -9,8 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        caffe: {
+          espresso: "#2C1A0E",
+          mocha: "#5C3D1E",
+          latte: "#C8A882",
+          cream: "#F5ECD7",
+          gold: "#B8912A",
+          dark: "#1A0F07",
+        },
+      },
+      fontFamily: {
+        display: ["var(--font-display)"],
+        body: ["var(--font-body)"],
       },
     },
   },
