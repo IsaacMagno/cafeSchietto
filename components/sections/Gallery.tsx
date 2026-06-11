@@ -1,22 +1,10 @@
 import GalleryClient from "@/components/sections/GalleryClient";
 import AnimatedSectionHeader from "@/components/ui/AnimatedSectionHeader";
 import { catalogToFallbackProducts } from "@/lib/product-catalog";
-import { isSupabaseConfigured } from "@/lib/supabase";
-import { getProducts } from "@/lib/queries";
-import type { Product } from "@/types";
 
-const FALLBACK_PRODUCTS = catalogToFallbackProducts();
+const PRODUCTS = catalogToFallbackProducts();
 
-export default async function Gallery() {
-  let products: Product[] = FALLBACK_PRODUCTS;
-
-  if (isSupabaseConfigured()) {
-    const fetched = await getProducts();
-    if (fetched.length > 0) {
-      products = fetched;
-    }
-  }
-
+export default function Gallery() {
   return (
     <section
       id="cardapio"
@@ -36,7 +24,7 @@ export default async function Gallery() {
         />
 
         <div className="mt-10 sm:mt-14">
-          <GalleryClient products={products} />
+          <GalleryClient products={PRODUCTS} limit={8} />
         </div>
       </div>
     </section>

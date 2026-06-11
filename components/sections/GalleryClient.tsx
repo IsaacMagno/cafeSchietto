@@ -5,15 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import { ROUTES } from "@/lib/routes";
-import {
-  CATEGORY_BADGE_STYLES,
-  CATEGORY_LABELS,
-  type FilterCategory,
-} from "@/lib/categories";
+import { CATEGORY_LABELS, type FilterCategory } from "@/lib/categories";
 import type { Product } from "@/types";
 
 interface GalleryClientProps {
   products: Product[];
+  /** Limite de itens exibidos (ex.: 8 para grid 4×2 simétrico na home). */
+  limit?: number;
 }
 
 function ProductCard({ product }: { product: Product }) {
@@ -40,11 +38,6 @@ function ProductCard({ product }: { product: Product }) {
             </span>
           </div>
         )}
-        <span
-          className={`absolute right-3 top-3 rounded-sm px-2.5 py-1 font-body text-xs font-semibold uppercase tracking-wide ${CATEGORY_BADGE_STYLES[product.category]}`}
-        >
-          {CATEGORY_LABELS[product.category]}
-        </span>
       </div>
       <div className="p-5">
         <h3 className="font-display text-xl font-bold text-caffe-cream">
@@ -58,13 +51,16 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
-export default function GalleryClient({ products }: GalleryClientProps) {
+export default function GalleryClient({ products, limit }: GalleryClientProps) {
   const [activeCategory, setActiveCategory] = useState<FilterCategory>("all");
 
   const filteredProducts = useMemo(() => {
-    if (activeCategory === "all") return products;
-    return products.filter((p) => p.category === activeCategory);
-  }, [products, activeCategory]);
+    const filtered =
+      activeCategory === "all"
+        ? products
+        : products.filter((p) => p.category === activeCategory);
+    return limit ? filtered.slice(0, limit) : filtered;
+  }, [products, activeCategory, limit]);
 
   return (
     <>

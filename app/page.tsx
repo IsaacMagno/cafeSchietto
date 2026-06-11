@@ -3,7 +3,6 @@ import About from "@/components/sections/About";
 import Gallery from "@/components/sections/Gallery";
 import Events from "@/components/sections/Events";
 import Location from "@/components/sections/Location";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SectionDivider from "@/components/ui/SectionDivider";
 import BackToTop from "@/components/ui/BackToTop";
@@ -12,7 +11,6 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 export default function Home() {
   return (
     <main>
-      <Header />
       <Hero />
       <About />
       <Gallery />

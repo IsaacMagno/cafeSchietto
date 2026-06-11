@@ -59,7 +59,7 @@ export const PRODUCT_CATALOG: Omit<Product, "id" | "created_at">[] = [
     description:
       "Sanduíche natural embalado para viagem, com frios, alface, tomate e cenoura ralada.",
     category: "salgado",
-    image_url: "/images/produto8.jpg",
+    image_url: "/images/produto8.webp",
   },
   {
     name: "Bolo Caseiro",

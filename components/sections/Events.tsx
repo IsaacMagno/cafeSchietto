@@ -5,10 +5,12 @@ import {
   InstagramIcon,
 } from "@/components/icons/SocialIcons";
 import AnimatedSectionHeader from "@/components/ui/AnimatedSectionHeader";
-import { getEvents } from "@/lib/queries";
 import { formatEventDate } from "@/lib/format-date";
 import { SOCIAL_LINKS } from "@/lib/social";
 import type { Event } from "@/types";
+
+/** Eventos do café — adicione itens aqui quando houver agenda. */
+const EVENTS: Event[] = [];
 
 function EventsEmptyState() {
   return (
@@ -92,8 +94,8 @@ function EventCard({ event }: { event: Event }) {
   );
 }
 
-export default async function Events() {
-  const events = await getEvents();
+export default function Events() {
+  const events = EVENTS;
   const hasEvents = events.length > 0;
 
   return (

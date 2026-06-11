@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lato, Playfair_Display } from "next/font/google";
+import Header from "@/components/layout/Header";
 import { SITE_IMAGES } from "@/lib/images";
 import "./globals.css";
 
@@ -48,6 +49,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${fontDisplay.variable} ${fontBody.variable}`}>
+        <Header />
         {children}
       </body>
     </html>

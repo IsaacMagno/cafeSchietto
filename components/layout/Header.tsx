@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { SITE_IMAGES } from "@/lib/images";
+import { ROUTES } from "@/lib/routes";
 
 const NAV_LINKS = [
   { label: "Sobre", href: "#sobre", ariaLabel: "Ir para a seção Sobre" },
@@ -13,6 +17,12 @@ const NAV_LINKS = [
     ariaLabel: "Ir para localização e contato",
   },
 ] as const;
+
+function resolveNavHref(pathname: string, href: string) {
+  if (pathname === ROUTES.home) return href;
+  if (href === "#") return ROUTES.home;
+  return `${ROUTES.home}${href}`;
+}
 
 function NavLink({
   href,
@@ -44,10 +54,18 @@ function NavLink({
 }
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === ROUTES.home;
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const showSolidBg = !isHome || scrolled;
+  const logoHref = isHome ? "#" : ROUTES.home;
+
   useEffect(() => {
+    if (!isHome) return;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -55,7 +73,7 @@ export default function Header() {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -69,24 +87,25 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ease-out ${
-        scrolled
+        showSolidBg
           ? "bg-caffe-espresso shadow-lg shadow-caffe-dark/40"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5 lg:px-10">
         <a
-          href="#"
+          href={logoHref}
           className="group shrink-0"
           onClick={closeMenu}
           aria-label="Caffè Schiètto — voltar ao início"
         >
-          <span className="font-display text-xl font-bold tracking-tight text-caffe-cream transition-colors group-hover:text-caffe-gold sm:text-2xl md:text-3xl">
-            Caffè Schiètto
-          </span>
-          <span
-            className="mt-1.5 block h-px w-10 bg-caffe-gold transition-all duration-300 group-hover:w-12"
-            aria-hidden
+          <Image
+            src={SITE_IMAGES.logo}
+            alt="Caffè Schiètto"
+            width={200}
+            height={90}
+            priority
+            className="h-10 w-auto transition-opacity duration-300 group-hover:opacity-90 sm:h-12 md:h-14"
           />
         </a>
 
@@ -97,7 +116,7 @@ export default function Header() {
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.href}
-              href={link.href}
+              href={resolveNavHref(pathname, link.href)}
               label={link.label}
               ariaLabel={link.ariaLabel}
             />
@@ -131,7 +150,7 @@ export default function Header() {
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.href}
-              href={link.href}
+              href={resolveNavHref(pathname, link.href)}
               label={link.label}
               ariaLabel={link.ariaLabel}
               onClick={closeMenu}

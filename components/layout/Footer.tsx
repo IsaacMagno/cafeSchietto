@@ -9,6 +9,8 @@ import { SOCIAL_LINKS } from "@/lib/social";
 
 const PRIMARY_PHONE = "(19) 3893-7377";
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="bg-caffe-dark">
@@ -120,7 +122,8 @@ export default function Footer() {
 
           <div className="mt-14 border-t border-caffe-mocha pt-8">
             <p className="text-center font-body text-xs text-caffe-mocha">
-              © 2024 Caffè Schiètto. Todos os direitos reservados. | Pedreira,
+              © {CURRENT_YEAR} Caffè Schiètto. Todos os direitos reservados. |
+              Pedreira,
               SP
             </p>
           </div>

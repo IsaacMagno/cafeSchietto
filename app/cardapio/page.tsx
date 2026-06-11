@@ -1,72 +1,49 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Coffee, ArrowLeft } from "lucide-react";
-import { ROUTES } from "@/lib/routes";
+import MenuClient from "@/components/cardapio/MenuClient";
+import { FULL_MENU_CATALOG } from "@/lib/full-menu-catalog";
 
 export const metadata: Metadata = {
   title: "Cardápio Completo | Caffè Schiètto",
   description:
-    "O cardápio digital completo do Caffè Schiètto estará disponível em breve.",
-  robots: { index: false, follow: true },
+    "Cardápio completo do Caffè Schiètto — cafés, chocolates, salgados, sobremesas, bebidas e muito mais em Pedreira, SP.",
 };
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 export default function CardapioPage() {
   return (
     <div className="flex min-h-screen flex-col bg-caffe-cream">
-      <header className="border-b border-caffe-latte/60 bg-caffe-espresso px-4 py-5 sm:px-6">
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between">
-          <Link
-            href={ROUTES.home}
-            className="font-display text-xl font-bold italic text-caffe-cream transition-colors hover:text-caffe-gold sm:text-2xl"
-            aria-label="Voltar para a página inicial"
-          >
-            Caffè Schiètto
-          </Link>
-          <Link
-            href={`${ROUTES.home}#cardapio`}
-            className="inline-flex items-center gap-2 font-body text-sm text-caffe-latte transition-colors hover:text-caffe-gold"
-            aria-label="Voltar para a prévia do cardápio no site"
-          >
-            <ArrowLeft size={18} strokeWidth={1.5} aria-hidden />
-            Voltar ao site
-          </Link>
-        </div>
-      </header>
+      <main className="flex-1 px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28">
+        <div className="mx-auto max-w-[1200px]">
+          <header className="text-center">
+            <p className="font-body text-sm font-light uppercase tracking-widest text-caffe-mocha">
+              Cardápio {CURRENT_YEAR}
+            </p>
+            <h1 className="mt-3 font-display text-4xl font-bold text-caffe-espresso sm:text-5xl">
+              Explore o universo de sabores do Schiètto Caffè.
+            </h1>
+            <div
+              className="mx-auto mt-6 h-px w-[60px] bg-caffe-gold"
+              aria-hidden
+            />
+            <p className="mx-auto mt-4 max-w-2xl font-body text-sm leading-relaxed text-caffe-mocha sm:text-base">
+              Uma seleção cuidadosa de cafés especiais, doces artesanais,
+              salgados e opções exclusivas para tornar o seu momento ainda mais
+              saboroso.
+            </p>
+          </header>
 
-      <main className="flex flex-1 flex-col items-center justify-center px-4 py-20 text-center sm:px-6">
-        <div className="mx-auto max-w-lg rounded-xl border border-caffe-latte/60 bg-white p-10 shadow-lg shadow-caffe-espresso/10">
-          <Coffee
-            className="mx-auto text-caffe-gold"
-            size={56}
-            strokeWidth={1.25}
-            aria-hidden
-          />
-          <p className="mt-6 font-body text-sm font-light uppercase tracking-widest text-caffe-mocha">
-            Em breve
-          </p>
-          <h1 className="mt-3 font-display text-3xl font-bold text-caffe-espresso sm:text-4xl">
-            Cardápio completo
-          </h1>
-          <div
-            className="mx-auto mt-6 h-px w-16 bg-caffe-gold"
-            aria-hidden
-          />
-          <p className="mt-6 font-body text-base leading-relaxed text-caffe-mocha">
-            Estamos preparando o cardápio digital completo com todos os itens,
-            preços e novidades. Volte em breve para conferir!
-          </p>
-          <p className="mt-4 font-body text-sm italic text-caffe-mocha/80">
-            Enquanto isso, veja nossa seleção de destaques na página inicial.
-          </p>
-          <Link
-            href={`${ROUTES.home}#cardapio`}
-            className="mt-8 inline-block rounded-sm bg-caffe-gold px-8 py-3.5 font-body text-sm font-semibold text-caffe-dark transition-colors hover:bg-caffe-mocha hover:text-caffe-cream"
-            aria-label="Ver destaques do cardápio na página inicial"
-          >
-            Ver destaques do cardápio
-          </Link>
+          <div className="mt-12">
+            <MenuClient items={FULL_MENU_CATALOG} />
+          </div>
         </div>
       </main>
+
+      <footer className="border-t border-caffe-latte/60 bg-caffe-espresso py-6 text-center">
+        <p className="font-body text-xs text-caffe-latte/70">
+          Preços sujeitos a alteração · Não cobramos 10% de taxa de serviço
+        </p>
+      </footer>
     </div>
   );
 }
