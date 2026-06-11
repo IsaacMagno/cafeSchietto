@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 :root {
   --font-display: "Playfair Display", serif;
@@ -110,6 +109,6 @@ section[id] {
 
   a:focus-visible,
   button:focus-visible {
-    @apply outline outline-2 outline-offset-2 outline-caffe-gold;
+    @apply outline-2 outline-offset-2 outline-caffe-gold;
   }
 }
