@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import MenuClient from "@/components/cardapio/MenuClient";
 import { FULL_MENU_CATALOG } from "@/lib/full-menu-catalog";
+import { parseMenuCategoryFilter } from "@/lib/menu-categories";
 
 export const metadata: Metadata = {
   title: "Cardápio Completo | Caffè Schiètto",
@@ -10,7 +11,14 @@ export const metadata: Metadata = {
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-export default function CardapioPage() {
+export default async function CardapioPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ categoria?: string }>;
+}) {
+  const { categoria } = await searchParams;
+  const initialCategory = parseMenuCategoryFilter(categoria);
+
   return (
     <div className="flex min-h-screen flex-col bg-caffe-cream">
       <main className="flex-1 px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28">
@@ -34,7 +42,10 @@ export default function CardapioPage() {
           </header>
 
           <div className="mt-12">
-            <MenuClient items={FULL_MENU_CATALOG} />
+            <MenuClient
+              items={FULL_MENU_CATALOG}
+              initialCategory={initialCategory}
+            />
           </div>
         </div>
       </main>

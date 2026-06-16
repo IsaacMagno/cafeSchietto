@@ -2,8 +2,8 @@
 export const SITE_IMAGES = {
   logo: "/images/logoCrop.webp",
   ambiente: {
-    hero: "/images/ambiente1.webp",
+    hero: "/images/ambienteAtualizado.webp",
     about: "/images/ambiente2.webp",
-    og: "/images/ambiente1.webp",
+    og: "/images/ambienteAtualizado.webp",
   },
 } as const;

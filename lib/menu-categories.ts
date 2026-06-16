@@ -1,7 +1,5 @@
 import type { MenuCategory, MenuCategoryFilter } from "@/types/menu";
 
-export type { MenuCategoryFilter };
-
 export const MENU_CATEGORY_FILTERS: {
   value: MenuCategoryFilter;
   label: string;
@@ -44,3 +42,13 @@ export const MENU_CATEGORY_BADGE: Record<MenuCategory, string> = {
   bebidas: "bg-sky-600/90 text-sky-50",
   cervejas: "bg-yellow-600/90 text-yellow-950",
 };
+
+export type { MenuCategoryFilter };
+
+export function parseMenuCategoryFilter(
+  value?: string | null
+): MenuCategoryFilter {
+  if (!value) return "all";
+  const match = MENU_CATEGORY_FILTERS.find((filter) => filter.value === value);
+  return match?.value ?? "all";
+}

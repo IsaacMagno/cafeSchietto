@@ -15,6 +15,7 @@ const ITEMS_PER_PAGE = 9;
 
 interface MenuClientProps {
   items: MenuItem[];
+  initialCategory?: MenuCategoryFilter;
 }
 
 function MenuCard({ item }: { item: MenuItem }) {
@@ -121,9 +122,12 @@ function MenuPagination({
   );
 }
 
-export default function MenuClient({ items }: MenuClientProps) {
+export default function MenuClient({
+  items,
+  initialCategory = "all",
+}: MenuClientProps) {
   const [activeCategory, setActiveCategory] =
-    useState<MenuCategoryFilter>("all");
+    useState<MenuCategoryFilter>(initialCategory);
   const [currentPage, setCurrentPage] = useState(1);
 
   const filteredItems = useMemo(() => {

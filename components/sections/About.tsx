@@ -1,23 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 import AnimatedReveal from "@/components/ui/AnimatedReveal";
 import { SITE_IMAGES } from "@/lib/images";
+import { GOOGLE_REVIEWS_URL, MAPS_URL } from "@/lib/maps";
+import { menuImage } from "@/lib/menu-images";
+import { ROUTES } from "@/lib/routes";
 
 const PILLARS = [
   {
     title: "Especialidade em Café",
     description:
       "Bebidas preparadas com técnica e dedicação, do espresso ao frappê.",
-    image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Xícara de café especial com latte art",
+    image: menuImage("CAFE CARIOCA.webp"),
+    imageAlt: "Café Carioca — bebida especial da casa",
+    href: `${ROUTES.cardapioCompleto}?categoria=cafes_chocolates`,
+    external: false,
+    ariaLabel: "Ver cafés e chocolates no cardápio",
   },
   {
     title: "Sobremesas Artesanais",
     description:
       "Doces e tortas feitos com ingredientes selecionados.",
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Fatia de bolo de chocolate artesanal",
+    image: menuImage("FATIA DE BOLO CASEIRO.webp"),
+    imageAlt: "Fatia de Bolo Caseiro — sobremesa da casa",
+    href: `${ROUTES.cardapioCompleto}?categoria=sobremesas`,
+    external: false,
+    ariaLabel: "Ver sobremesas no cardápio",
   },
   {
     title: "No Centro de Pedreira",
@@ -26,14 +34,19 @@ const PILLARS = [
     image:
       "https://visitesocorrosp.com.br/content/images/2024/04/Guia-de-Pedreira.jpg",
     imageAlt: "Vista do centro de Pedreira, SP",
+    href: MAPS_URL,
+    external: true,
+    ariaLabel: "Abrir localização do Caffè Schiètto no Google Maps",
   },
   {
     title: "4.4 no Google",
     description:
       "Avaliado por centenas de clientes satisfeitos desde 2016.",
-    image:
-      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Ambiente acolhedor de cafeteria",
+    image: SITE_IMAGES.ambiente.hero,
+    imageAlt: "Ambiente do Caffè Schiètto em Pedreira",
+    href: GOOGLE_REVIEWS_URL,
+    external: true,
+    ariaLabel: "Ver avaliações do Caffè Schiètto no Google",
   },
 ] as const;
 
@@ -42,9 +55,15 @@ function PillarCard({
   description,
   image,
   imageAlt,
+  href,
+  external,
+  ariaLabel,
 }: (typeof PILLARS)[number]) {
-  return (
-    <article className="group relative min-h-[220px] overflow-hidden rounded-xl sm:min-h-[260px] lg:min-h-[280px]">
+  const cardClassName =
+    "group relative block min-h-[220px] overflow-hidden rounded-xl transition-shadow hover:shadow-lg hover:shadow-caffe-espresso/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-caffe-gold sm:min-h-[260px] lg:min-h-[280px]";
+
+  const content = (
+    <>
       <Image
         src={image}
         alt={imageAlt}
@@ -53,7 +72,7 @@ function PillarCard({
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-caffe-espresso/95 via-caffe-espresso/75 to-caffe-espresso/40"
+        className="absolute inset-0 bg-gradient-to-t from-caffe-espresso/95 via-caffe-espresso/75 to-caffe-espresso/40 transition-opacity group-hover:from-caffe-espresso"
         aria-hidden
       />
       <div className="relative flex h-full min-h-[inherit] flex-col justify-end p-6 sm:p-7">
@@ -64,7 +83,27 @@ function PillarCard({
           {description}
         </p>
       </div>
-    </article>
+    </>
+  );
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={ariaLabel}
+        className={cardClassName}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} aria-label={ariaLabel} className={cardClassName}>
+      {content}
+    </Link>
   );
 }
 
