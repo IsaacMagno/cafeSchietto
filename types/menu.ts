@@ -5,7 +5,6 @@ export type MenuCategory =
   | "brunch_combos"
   | "salgados"
   | "saladas"
-  | "saudaveis"
   | "sobremesas"
   | "bebidas"
   | "cervejas";

@@ -10,7 +10,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Café Schiètto",
     description:
       "Café espresso duplo ou café com leite, blends de chocolate ao leite, borda de doce de leite, finalizado com chantilly e raspas de chocolate. 150ml",
-    price: "R$ 19,90",
+    price: "R$ 21,90",
     category: "cafes_chocolates",
     section: "Receitas Schiètto",
     image: I("CAFÉ SCHIÈTTO.webp"),
@@ -30,7 +30,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Cappuccino Schiètto",
     description:
       "Café gourmet 100% arábica moído na hora, chocolate Europeu, canela, raspas de chocolate, leite vaporizado, borda de Nutella, finalizado com chantilly e Ovomaltine. 150ml",
-    price: "R$ 21,50",
+    price: "R$ 23,90",
     category: "cafes_chocolates",
     section: "Receitas Schiètto",
     image: I("CAPPUCCINO SCHIÈTTO.webp"),
@@ -50,7 +50,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Café Espresso",
     description:
       "Café gourmet em grãos 100% arábica moído na hora. Acompanha dose de água gaseificada mediante solicitação. 50ml",
-    price: "R$ 8,50",
+    price: "R$ 9,50",
     category: "cafes_chocolates",
     section: "Cafés",
     image: I("CAFÉ ESPRESSO.webp"),
@@ -60,7 +60,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Café Carioca",
     description:
       "Café gourmet em grãos 100% arábica moído na hora. Acompanha dose de água gaseificada mediante solicitação. 50ml",
-    price: "R$ 8,50",
+    price: "R$ 9,50",
     category: "cafes_chocolates",
     section: "Cafés",
     image: I("CAFE CARIOCA.webp"),
@@ -110,7 +110,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Café Duplo",
     description:
       "Café espresso duplo gourmet em grãos 100% arábica moído na hora. Acompanha dose de água gaseificada mediante solicitação. 50ml",
-    price: "R$ 13,90",
+    price: "R$ 15,50",
     category: "cafes_chocolates",
     section: "Cafés",
     image: I("CAFÉ DUPLO.webp"),
@@ -120,7 +120,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Café com Leite",
     description:
       "Café gourmet em grãos 100% arábica moído na hora, leite vaporizado e finalizado com crema de leite. 150ml",
-    price: "R$ 13,90",
+    price: "R$ 15,50",
     category: "cafes_chocolates",
     section: "Cafés",
     image: I("CAFÉ COM LEITE.webp"),
@@ -218,15 +218,6 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     image: I("AMARULA COFFEE.webp"),
   },
   {
-    id: "choconhaque",
-    name: "Choconhaque",
-    description:
-      "Chocolate quente Europeu e conhaque, finalizado com chantilly e raspas de chocolate — textura cremosa. 120ml",
-    price: "R$ 19,90",
-    category: "coffee_drinks",
-    section: "Coffee Drinks",
-  },
-  {
     id: "orange-coffee",
     name: "Orange Coffee",
     description:
@@ -253,7 +244,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Frapê de Ninho com Nutella",
     description:
       "Leite e gelo batido com ninho e Nutella, borda de Nutella, finalizado com chantilly, Ovomaltine, ninho e canudo de wafer. 350ml",
-    price: "R$ 28,50",
+    price: "R$ 31,50",
     category: "bebidas_geladas",
     section: "Bebidas Especiais",
     image: I("FRAPÊ DE NINHO COM NUTELLA.webp"),
@@ -263,7 +254,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Frapê de Ninho com Frutas Vermelhas",
     description:
       "Leite e gelo batido com ninho e geleia de frutas vermelhas, decorado com geleia e finalizado com chantilly, cereja e ninho. 350ml",
-    price: "R$ 28,50",
+    price: "R$ 31,50",
     category: "bebidas_geladas",
     section: "Bebidas Especiais",
     image: I("FRAPÊ DE NINHO COM FRUTAS VERMELHAS.webp"),
@@ -273,7 +264,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Açaí Schiètto",
     description:
       "Açaí, sorvete de creme, banana, granola, ninho, borda de Nutella com amendoim, finalizado com cereja e ninho. 350ml",
-    price: "R$ 28,50",
+    price: "R$ 31,50",
     category: "bebidas_geladas",
     section: "Bebidas Especiais",
     image: I("AÇAÍ SCHIÈTTO.webp"),
@@ -283,7 +274,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Frappuccino",
     description:
       "Leite batido com cubos de café espresso congelado, sorvete de creme, leite condensado, canela, chocolate Europeu, calda de caramelo, borda de doce de leite, chantilly, amendoim e canudo de wafer. 350ml",
-    price: "R$ 28,50",
+    price: "R$ 31,50",
     category: "bebidas_geladas",
     section: "Bebidas Especiais",
     image: I("FRAPPUCCINO.webp"),
@@ -343,8 +334,8 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     id: "pao-na-chapa",
     name: "Pão na Chapa",
     description:
-      "Pão de forma integral 30% ou pão francês com acompanhamento: Manteiga (R$ 9,90) · Requeijão, Goiabada ou Doce de Leite (R$ 11,90) · Requeijão Crispy (R$ 18,50)",
-    price: "A partir de R$ 9,90",
+      "Pão de forma integral 30% ou pão francês com acompanhamento: Manteiga (R$ 10,90) · Requeijão, Goiabada ou Doce de Leite (R$ 11,90) · Requeijão Crispy (R$ 18,50)",
+    price: "A partir de R$ 10,90",
     category: "brunch_combos",
     section: "Brunch",
     image: I("PÃO NA CHAPA-MANTEIGA.webp"),
@@ -353,7 +344,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     id: "waffle",
     name: "Waffle",
     description:
-      "Massa de waffle com acompanhamento: Nutella (R$ 28,90) · Requeijão, Banana e Mel, Doce de Leite, Goiabada, Geleia de Frutas Vermelhas ou Manteiga (R$ 22,90)",
+      "Massa de waffle com acompanhamento: Nutella (R$ 31,50) · Requeijão, Banana e Mel, Doce de Leite, Goiabada, Geleia de Frutas Vermelhas ou Manteiga (R$ 22,90)",
     price: "A partir de R$ 22,90",
     category: "brunch_combos",
     section: "Brunch",
@@ -433,7 +424,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     id: "pao-queijo-tradicional",
     name: "Pão de Queijo Tradicional",
     description: "Pão de queijo fresquinho, feito na hora.",
-    price: "R$ 9,50",
+    price: "R$ 10,50",
     category: "salgados",
     section: "Salgados",
     image: I("PÃO DE QUEIJO TRADICIONAL.webp"),
@@ -528,15 +519,6 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
 
   // ── Saladas ──
   {
-    id: "salada-mix-schietto",
-    name: "Salada Mix Schiètto",
-    description:
-      "Mix de folhas, batata palha e tomate. Molho Schiètto mediante solicitação. 130g",
-    price: "R$ 22,00",
-    category: "saladas",
-    section: "Saladas",
-  },
-  {
     id: "salada-caesar",
     name: "Salada Mix Caesar",
     description:
@@ -547,14 +529,13 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     image: I("SALADA MIX CAESAR.webp"),
   },
 
-  // ── Saudáveis ──
   {
     id: "suco-energico",
     name: "Suco Energético Cenoura",
     description: "Suco natural de laranja batido com cenoura e gengibre em pó. 400ml",
     price: "R$ 19,00",
-    category: "saudaveis",
-    section: "Saudáveis",
+    category: "bebidas",
+    section: "Bebidas Geladas",
     image: I("SUCO ENÉRGICO CENOURA.webp"),
   },
   {
@@ -562,8 +543,8 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Suco Antioxidante",
     description: "Suco natural de morango batido com beterraba. 400ml",
     price: "R$ 19,00",
-    category: "saudaveis",
-    section: "Saudáveis",
+    category: "bebidas",
+    section: "Bebidas Geladas",
     image: I("SUCO ANTIOXIDANTE.webp"),
   },
   {
@@ -571,36 +552,9 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Suco Detox",
     description: "Suco natural de abacaxi batido com couve e hortelã. 400ml",
     price: "R$ 19,00",
-    category: "saudaveis",
-    section: "Saudáveis",
+    category: "bebidas",
+    section: "Bebidas Geladas",
     image: I("SUCO DETOX.webp"),
-  },
-  {
-    id: "lanche-natural-fit",
-    name: "Lanche Natural (Fit)",
-    description:
-      "Pão integral 30% com maionese light, tomate cereja, alface, peito de peru e mozzarella de búfala.",
-    price: "R$ 26,00",
-    category: "saudaveis",
-    section: "Saudáveis",
-    image: I("LANCHE NATURAL.webp"),
-  },
-  {
-    id: "avocado-toast",
-    name: "Avocado Toast",
-    description:
-      "Fatia de pão integral 30% com abacate, tomate cereja, mozzarella de búfala, fio de mel e orégano.",
-    price: "R$ 26,00",
-    category: "saudaveis",
-    section: "Saudáveis",
-  },
-  {
-    id: "bolo-low-carb",
-    name: "Fatia de Bolo Caseiro Low Carb",
-    description: "Consulte opções disponíveis.",
-    price: "R$ 13,90",
-    category: "saudaveis",
-    section: "Saudáveis",
   },
 
   // ── Sobremesas ──
@@ -671,6 +625,26 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     category: "sobremesas",
     section: "Sobremesas",
     image: I("PANINI DOCE.webp"),
+  },
+  {
+    id: "real-tartufo",
+    name: "Real Tartufo",
+    description:
+      "Sorvete de chocolate, envolto por uma camada de cacau em pó e recheado com um cremoso chantilly.",
+    price: "R$ 30,90",
+    category: "sobremesas",
+    section: "Sobremesas",
+    image: I("REAL TARTUFO.webp"),
+  },
+  {
+    id: "amore-di-coco",
+    name: "Amore di Coco",
+    description:
+      "Sorvete de coco com raspas de coco e recheio de doce de leite.",
+    price: "R$ 30,90",
+    category: "sobremesas",
+    section: "Sobremesas",
+    image: I("AMORE DI COCO.webp"),
   },
 
   // ── Bebidas geladas (sucos etc.) ──
@@ -754,26 +728,10 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
 
   // ── Bebidas (latas e garrafas) ──
   {
-    id: "agua-lata",
-    name: "Água Lata",
-    description: "350ml",
-    price: "R$ 6,00",
-    category: "bebidas",
-    section: "Bebidas",
-  },
-  {
-    id: "agua-lata-aromatizada",
-    name: "Água Lata Aromatizada",
-    description: "350ml",
-    price: "R$ 6,50",
-    category: "bebidas",
-    section: "Bebidas",
-  },
-  {
     id: "agua-mineral",
     name: "Água Mineral",
     description: "500ml",
-    price: "R$ 4,50",
+    price: "R$ 6,00",
     category: "bebidas",
     section: "Bebidas",
   },
@@ -781,7 +739,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     id: "agua-mineral-gas",
     name: "Água Mineral com Gás",
     description: "500ml",
-    price: "R$ 4,90",
+    price: "R$ 6,50",
     category: "bebidas",
     section: "Bebidas",
   },
@@ -797,7 +755,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     id: "suco-lata",
     name: "Suco Lata",
     description: "290ml — consulte opções disponíveis",
-    price: "R$ 7,90",
+    price: "R$ 8,50",
     category: "bebidas",
     section: "Bebidas",
   },
@@ -805,15 +763,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     id: "refrigerante-lata",
     name: "Refrigerante Lata",
     description: "350ml — consulte opções disponíveis",
-    price: "R$ 7,90",
-    category: "bebidas",
-    section: "Bebidas",
-  },
-  {
-    id: "refrigerante",
-    name: "Refrigerante",
-    description: "600ml — consulte opções disponíveis",
-    price: "R$ 10,90",
+    price: "R$ 8,50",
     category: "bebidas",
     section: "Bebidas",
   },
