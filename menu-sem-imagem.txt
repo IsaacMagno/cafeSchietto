@@ -1,16 +1,12 @@
 Café Espresso Nespresso
-Affogatto
-Chocolate Italiano
-Chocotine
-Combo Chocolate Quente
 Combo Sul Minas
 Combo Latte Sul Minas
-Ovos Mexidos Cremosos
 Água Mineral
 Água Mineral com Gás
-H2O
+H20
 Suco Lata
 Refrigerante Lata
+Refrigerante
 Heineken Longneck
 Heineken Longneck Zero
 Stella Artois Longneck
