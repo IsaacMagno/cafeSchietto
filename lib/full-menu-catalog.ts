@@ -150,7 +150,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     name: "Chocolate Schiètto",
     description:
       "Leite vaporizado, blends de chocolate ao leite, borda de Nutella, finalizado com chantilly e raspas de chocolate. 150ml",
-    price: "R$ 21,90",
+    price: "R$ 22,90",
     category: "cafes_chocolates",
     section: "Receitas Schiètto",
     image: I("CHOCOLATE SCHIÈTTO.webp"),
@@ -436,7 +436,7 @@ export const FULL_MENU_CATALOG: MenuItem[] = [
     id: "combo-sul-minas",
     name: "Combo Sul Minas",
     description: "Café espresso 50ml acompanhado de um pão de queijo.",
-    price: "R$ 17,50",
+    price: "R$ 17,00",
     category: "brunch_combos",
     section: "Combos",
   },
