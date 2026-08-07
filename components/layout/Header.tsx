@@ -10,7 +10,7 @@ import { ROUTES } from "@/lib/routes";
 const NAV_LINKS = [
   { label: "Sobre", href: "#sobre", ariaLabel: "Ir para a seção Sobre" },
   { label: "Cardápio", href: "#cardapio", ariaLabel: "Ir para o cardápio" },
-  { label: "Eventos", href: "#eventos", ariaLabel: "Ir para a seção de eventos" },
+  { label: "Redes", href: "#redes", ariaLabel: "Ir para redes sociais e mapa" },
   {
     label: "Localização",
     href: "#localizacao",

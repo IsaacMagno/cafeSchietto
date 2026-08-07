@@ -1,6 +1,5 @@
-import { Clock, ExternalLink, MapPin, Phone } from "lucide-react";
-import { MAPS_EMBED_URL, MAPS_URL } from "@/lib/maps";
-import AnimatedReveal from "@/components/ui/AnimatedReveal";
+import { Clock, MapPin, Phone } from "lucide-react";
+import { MAPS_URL } from "@/lib/maps";
 import { SOCIAL_LINKS } from "@/lib/social";
 
 const HOURS = [
@@ -103,63 +102,6 @@ export default function Location() {
               >
                 Encomendar pelo WhatsApp
               </a>
-              <ul className="mt-8 space-y-3">
-                <li>
-                  <a
-                    href={SOCIAL_LINKS.instagram.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 font-body text-sm text-caffe-latte transition-colors hover:text-caffe-gold"
-                    aria-label={`Instagram ${SOCIAL_LINKS.instagram.handle}`}
-                  >
-                    <ExternalLink
-                      size={16}
-                      strokeWidth={1.5}
-                      className="shrink-0 text-caffe-gold"
-                      aria-hidden
-                    />
-                    Instagram: {SOCIAL_LINKS.instagram.handle}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={SOCIAL_LINKS.facebook.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 font-body text-sm text-caffe-latte transition-colors hover:text-caffe-gold"
-                    aria-label={`Facebook ${SOCIAL_LINKS.facebook.handle}`}
-                  >
-                    <ExternalLink
-                      size={16}
-                      strokeWidth={1.5}
-                      className="shrink-0 text-caffe-gold"
-                      aria-hidden
-                    />
-                    Facebook: {SOCIAL_LINKS.facebook.handle}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-14 sm:mt-16 lg:mt-20">
-            <AnimatedReveal>
-              <h3 className="font-display text-2xl font-bold text-caffe-cream sm:text-3xl">
-                Como Chegar
-              </h3>
-            </AnimatedReveal>
-            <div className="mt-6 overflow-hidden rounded-xl border border-caffe-mocha">
-              <div className="relative aspect-video w-full min-h-[280px] sm:min-h-[350px] lg:min-h-[450px]">
-                <iframe
-                  src={MAPS_EMBED_URL}
-                  className="absolute inset-0 h-full w-full rounded-xl"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Localização do Caffè Schiètto no Google Maps"
-                />
-              </div>
             </div>
           </div>
         </div>

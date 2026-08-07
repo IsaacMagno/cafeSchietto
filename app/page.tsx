@@ -1,7 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Gallery from "@/components/sections/Gallery";
-import Events from "@/components/sections/Events";
+import Social from "@/components/sections/Social";
 import Location from "@/components/sections/Location";
 import Footer from "@/components/layout/Footer";
 import SectionDivider from "@/components/ui/SectionDivider";
@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <About />
       <Gallery />
-      <Events />
+      <Social />
       <SectionDivider />
       <Location />
       <Footer />
