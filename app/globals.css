@@ -11,17 +11,6 @@ html {
   scroll-padding-top: 80px;
 }
 
-/* Mobile: snap nativo por seção (desktop usa rolagem animada via JS) */
-@media (pointer: coarse) {
-  html {
-    scroll-snap-type: y proximity;
-  }
-
-  [data-snap] {
-    scroll-snap-align: start;
-  }
-}
-
 section[id] {
   scroll-margin-top: 80px;
 }
