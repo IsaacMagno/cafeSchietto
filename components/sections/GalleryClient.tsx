@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedReveal from "@/components/ui/AnimatedReveal";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import { ROUTES } from "@/lib/routes";
 import { CATEGORY_LABELS, type FilterCategory } from "@/lib/categories";
@@ -18,18 +19,18 @@ function ProductCard({ product }: { product: Product }) {
   const hasImage = Boolean(product.image_url?.trim());
 
   return (
-    <article className="group overflow-hidden rounded-lg border border-caffe-mocha/40 bg-caffe-espresso/80 shadow-lg shadow-caffe-dark/30 transition-all duration-300 hover:-translate-y-1 hover:border-caffe-latte/50 hover:shadow-xl hover:shadow-caffe-dark/50">
-      <div className="relative aspect-[4/3] overflow-hidden bg-caffe-mocha">
+    <article className="group relative h-full overflow-hidden rounded-xl border border-caffe-latte/15 bg-gradient-to-b from-caffe-espresso/90 to-caffe-dark/90 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:border-caffe-gold/40 hover:shadow-xl hover:shadow-caffe-dark/60">
+      <div className="relative aspect-[4/3] overflow-hidden">
         {hasImage ? (
           <Image
             src={product.image_url}
             alt={`Foto do produto ${product.name}`}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-[1.1s] ease-premium group-hover:scale-[1.07]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
         ) : (
-          <div className="flex h-full flex-col items-center justify-center gap-2 p-4">
+          <div className="flex h-full flex-col items-center justify-center gap-2 bg-caffe-mocha/60 p-4">
             <span className="text-5xl" role="img" aria-hidden>
               ☕
             </span>
@@ -38,12 +39,23 @@ function ProductCard({ product }: { product: Product }) {
             </span>
           </div>
         )}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-caffe-dark/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          aria-hidden
+        />
       </div>
-      <div className="p-5">
-        <h3 className="font-display text-xl font-bold text-caffe-cream">
+      <div className="relative p-5 sm:p-6">
+        <span
+          className="absolute left-5 top-0 h-px w-10 bg-caffe-gold/60 transition-all duration-500 ease-premium group-hover:w-16 group-hover:bg-caffe-gold sm:left-6"
+          aria-hidden
+        />
+        <p className="font-body text-[0.65rem] font-light uppercase tracking-[0.22em] text-caffe-gold/80">
+          {CATEGORY_LABELS[product.category]}
+        </p>
+        <h3 className="mt-2 font-display text-xl font-bold text-caffe-cream">
           {product.name}
         </h3>
-        <p className="mt-2 font-body text-sm leading-relaxed text-caffe-latte">
+        <p className="mt-2 font-body text-sm font-light leading-relaxed text-caffe-latte">
           {product.description}
         </p>
       </div>
@@ -67,8 +79,10 @@ export default function GalleryClient({ products, limit }: GalleryClientProps) {
       <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
 
       <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {filteredProducts.map((product, index) => (
+          <AnimatedReveal key={product.id} delay={(index % 4) * 100}>
+            <ProductCard product={product} />
+          </AnimatedReveal>
         ))}
       </div>
 
@@ -82,10 +96,13 @@ export default function GalleryClient({ products, limit }: GalleryClientProps) {
         <Link
           href={ROUTES.cardapioCompleto}
           aria-label="Ver cardápio completo"
-          className="group inline-flex items-center gap-2 font-body text-base text-caffe-gold underline decoration-caffe-gold/50 underline-offset-4 transition-colors hover:text-caffe-latte hover:decoration-caffe-latte sm:text-lg"
+          className="group inline-flex items-center gap-3 rounded-sm border border-caffe-gold/50 px-8 py-3.5 font-body text-xs font-light uppercase tracking-[0.2em] text-caffe-gold transition-all duration-500 ease-premium hover:border-caffe-gold hover:bg-caffe-gold hover:text-caffe-dark"
         >
           Ver cardápio completo
-          <span className="transition-transform group-hover:translate-x-1">
+          <span
+            className="transition-transform duration-500 ease-premium group-hover:translate-x-1.5"
+            aria-hidden
+          >
             →
           </span>
         </Link>

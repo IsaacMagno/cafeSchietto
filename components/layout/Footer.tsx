@@ -13,13 +13,13 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="bg-caffe-dark">
+    <footer data-snap className="bg-caffe-dark">
       <div
-        className="h-1 bg-gradient-to-r from-caffe-gold via-caffe-mocha to-caffe-gold"
+        className="h-px bg-gradient-to-r from-transparent via-caffe-gold/60 to-transparent"
         aria-hidden
       />
 
-      <div className="border-t border-caffe-mocha py-16">
+      <div className="py-16 sm:py-20">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 text-center md:grid-cols-2 md:text-left lg:grid-cols-3 lg:gap-16">
             <div className="flex flex-col items-center md:items-start">
@@ -43,7 +43,7 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col items-center md:items-start">
-              <h3 className="font-body text-sm font-semibold uppercase tracking-wide text-caffe-gold">
+              <h3 className="font-body text-xs font-semibold uppercase tracking-[0.25em] text-caffe-gold">
                 Explore
               </h3>
               <nav
@@ -64,7 +64,7 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col items-center md:items-start">
-              <h3 className="font-body text-sm font-semibold uppercase tracking-wide text-caffe-gold">
+              <h3 className="font-body text-xs font-semibold uppercase tracking-[0.25em] text-caffe-gold">
                 Contato
               </h3>
               <address className="mt-6 space-y-2 font-body not-italic text-caffe-latte">
@@ -120,11 +120,10 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-14 border-t border-caffe-mocha pt-8">
-            <p className="text-center font-body text-xs text-caffe-mocha">
-              © {CURRENT_YEAR} Caffè Schiètto. Todos os direitos reservados. |
-              Pedreira,
-              SP
+          <div className="mt-14 border-t border-caffe-mocha/40 pt-8">
+            <p className="text-center font-body text-xs font-light tracking-wide text-caffe-latte/60">
+              © {CURRENT_YEAR} Caffè Schiètto · Todos os direitos reservados ·
+              Pedreira, SP
             </p>
           </div>
         </div>

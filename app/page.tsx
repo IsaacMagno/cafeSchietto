@@ -5,12 +5,14 @@ import Social from "@/components/sections/Social";
 import Location from "@/components/sections/Location";
 import Footer from "@/components/layout/Footer";
 import SectionDivider from "@/components/ui/SectionDivider";
+import SectionSnapScroll from "@/components/ui/SectionSnapScroll";
 import BackToTop from "@/components/ui/BackToTop";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 export default function Home() {
   return (
     <main>
+      <SectionSnapScroll />
       <Hero />
       <About />
       <Gallery />

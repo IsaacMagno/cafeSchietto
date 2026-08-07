@@ -29,10 +29,10 @@ export default function CategoryFilter({
             onClick={() => onChange(filter.value)}
             aria-label={`Filtrar por ${filter.label}`}
             aria-pressed={isActive}
-            className={`rounded-sm px-4 py-2.5 font-body text-sm tracking-wide transition-all duration-300 sm:px-5 ${
+            className={`rounded-full px-5 py-2.5 font-body text-xs uppercase tracking-[0.14em] transition-all duration-500 ease-premium sm:px-6 ${
               isActive
-                ? "bg-caffe-gold font-semibold text-caffe-dark shadow-md shadow-caffe-gold/20"
-                : "border border-caffe-latte text-caffe-latte hover:border-caffe-gold hover:text-caffe-gold"
+                ? "bg-caffe-gold font-semibold text-caffe-dark shadow-md shadow-caffe-gold/25"
+                : "border border-caffe-latte/40 font-light text-caffe-latte hover:border-caffe-gold/70 hover:text-caffe-gold"
             }`}
           >
             {filter.label}

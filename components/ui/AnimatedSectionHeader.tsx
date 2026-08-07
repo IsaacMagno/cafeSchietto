@@ -13,7 +13,7 @@ interface AnimatedSectionHeaderProps {
 export default function AnimatedSectionHeader({
   tag,
   title,
-  tagClassName = "font-body text-sm font-light uppercase tracking-widest text-caffe-mocha",
+  tagClassName = "font-body text-xs font-light uppercase tracking-[0.3em] text-caffe-mocha",
   titleClassName = "mt-4 font-display text-4xl font-bold text-caffe-espresso sm:text-5xl",
   align = "center",
 }: AnimatedSectionHeaderProps) {

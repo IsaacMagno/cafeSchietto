@@ -42,7 +42,7 @@ function NavLink({
       href={href}
       onClick={onClick}
       aria-label={ariaLabel}
-      className={`group relative font-body text-sm font-light tracking-wide text-caffe-cream transition-colors hover:text-caffe-gold ${className}`}
+      className={`group relative font-body text-xs font-light uppercase tracking-[0.18em] text-caffe-cream transition-colors duration-300 hover:text-caffe-gold ${className}`}
     >
       {label}
       <span
@@ -88,8 +88,8 @@ export default function Header() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ease-out ${
         showSolidBg
-          ? "bg-caffe-espresso shadow-lg shadow-caffe-dark/40"
-          : "bg-transparent"
+          ? "border-b border-caffe-gold/15 bg-caffe-dark/85 shadow-lg shadow-caffe-dark/30 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5 lg:px-10">
@@ -144,7 +144,7 @@ export default function Header() {
         }`}
       >
         <nav
-          className="flex flex-col gap-6 border-t border-caffe-mocha/50 bg-caffe-espresso px-6 py-8"
+          className="flex flex-col gap-6 border-t border-caffe-gold/15 bg-caffe-dark/95 px-6 py-8 backdrop-blur-md"
           aria-label="Menu mobile"
         >
           {NAV_LINKS.map((link) => (
