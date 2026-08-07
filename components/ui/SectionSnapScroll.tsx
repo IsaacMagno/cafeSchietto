@@ -3,8 +3,9 @@
 import { useEffect } from "react";
 
 /** Rolagem por seções: uma rolada do mouse leva à próxima seção [data-snap].
- *  Seções mais altas que a viewport rolam internamente antes de avançar.
- *  Ativo apenas em desktop (pointer fine); mobile usa scroll-snap nativo via CSS. */
+ *  Seções mais altas que a viewport permitem rolagem livre nativa; o snap
+ *  só acontece quando o usuário atinge o limite da seção.
+ *  Ativo apenas em desktop (pointer fine); mobile usa rolagem nativa. */
 
 const DURATION_MS = 950;
 const COOLDOWN_MS = 400;
@@ -80,21 +81,38 @@ export default function SectionSnapScroll() {
       const viewTop = window.scrollY;
       const viewBottom = viewTop + window.innerHeight;
 
-      e.preventDefault();
-
       if (goingDown) {
-        if (bottom - viewBottom > 32) {
-          // Ainda há conteúdo da seção abaixo — rola dentro dela
-          animateTo(
-            Math.min(bottom - window.innerHeight, viewTop + window.innerHeight * 0.85)
-          );
-        } else if (idx < sections.length - 1) {
+        const remaining = bottom - viewBottom;
+        if (remaining > 2) {
+          // Seção ainda tem conteúdo abaixo: rolagem livre nativa.
+          // Se a rolada passaria do limite, trava exatamente nele.
+          if (e.deltaY >= remaining) {
+            e.preventDefault();
+            window.scrollTo({
+              top: bottom - window.innerHeight,
+              behavior: "instant" as ScrollBehavior,
+            });
+            // Pequena pausa para a inércia não disparar o snap sem querer
+            lastEndAt = performance.now();
+          }
+          return;
+        }
+        e.preventDefault();
+        if (idx < sections.length - 1) {
           animateTo(sections[idx + 1].offsetTop);
         }
       } else {
-        if (viewTop - top > 32) {
-          animateTo(Math.max(top, viewTop - window.innerHeight * 0.85));
-        } else if (idx > 0) {
+        const remaining = viewTop - top;
+        if (remaining > 2) {
+          if (-e.deltaY >= remaining) {
+            e.preventDefault();
+            window.scrollTo({ top, behavior: "instant" as ScrollBehavior });
+            lastEndAt = performance.now();
+          }
+          return;
+        }
+        e.preventDefault();
+        if (idx > 0) {
           const prev = sections[idx - 1];
           // Entra pela parte final da seção anterior (caso ela seja mais alta que a tela)
           animateTo(
