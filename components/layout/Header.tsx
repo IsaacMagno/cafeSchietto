@@ -6,11 +6,12 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { SITE_IMAGES } from "@/lib/images";
 import { ROUTES } from "@/lib/routes";
+import { HOME_DECOR_URL } from "@/lib/social";
 
 const NAV_LINKS = [
   { label: "Sobre", href: "#sobre", ariaLabel: "Ir para a seção Sobre" },
   { label: "Cardápio", href: "#cardapio", ariaLabel: "Ir para o cardápio" },
-  { label: "Redes", href: "#redes", ariaLabel: "Ir para redes sociais e mapa" },
+  { label: "Redes", href: "#redes", ariaLabel: "Ir para redes sociais" },
   {
     label: "Localização",
     href: "#localizacao",
@@ -42,7 +43,7 @@ function NavLink({
       href={href}
       onClick={onClick}
       aria-label={ariaLabel}
-      className={`group relative font-body text-xs font-light uppercase tracking-[0.18em] text-caffe-cream transition-colors duration-300 hover:text-caffe-gold ${className}`}
+      className={`group relative cursor-pointer font-body text-xs font-light uppercase tracking-[0.18em] text-caffe-cream transition-colors duration-300 hover:text-caffe-gold ${className}`}
     >
       {label}
       <span
@@ -95,7 +96,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5 lg:px-10">
         <a
           href={logoHref}
-          className="group shrink-0"
+          className="group shrink-0 cursor-pointer"
           onClick={closeMenu}
           aria-label="Caffè Schiètto — voltar ao início"
         >
@@ -123,9 +124,20 @@ export default function Header() {
           ))}
         </nav>
 
+        <div className="hidden items-center lg:flex">
+          <a
+            href={HOME_DECOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer rounded-sm border border-caffe-cream/35 px-5 py-2 font-body text-xs font-light uppercase tracking-[0.16em] text-caffe-cream transition-all duration-300 hover:border-caffe-gold hover:text-caffe-gold"
+          >
+            Home Decor
+          </a>
+        </div>
+
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center text-caffe-cream transition-colors hover:text-caffe-gold lg:hidden"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center text-caffe-cream transition-colors hover:text-caffe-gold lg:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
@@ -157,6 +169,15 @@ export default function Header() {
               className="text-lg"
             />
           ))}
+          <a
+            href={HOME_DECOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+            className="inline-flex w-fit cursor-pointer rounded-sm border border-caffe-cream/35 px-5 py-2.5 font-body text-xs font-light uppercase tracking-[0.16em] text-caffe-cream transition-all duration-300 hover:border-caffe-gold hover:text-caffe-gold"
+          >
+            Home Decor
+          </a>
         </nav>
       </div>
     </header>

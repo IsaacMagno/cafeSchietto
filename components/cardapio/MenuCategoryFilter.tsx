@@ -29,7 +29,7 @@ export default function MenuCategoryFilterBar({
             onClick={() => onChange(filter.value)}
             aria-label={`Filtrar por ${filter.label}`}
             aria-pressed={isActive}
-            className={`rounded-sm px-3 py-2 font-body text-xs tracking-wide transition-all duration-300 sm:px-4 sm:text-sm ${
+            className={`cursor-pointer rounded-sm px-3 py-2 font-body text-xs tracking-wide transition-all duration-300 sm:px-4 sm:text-sm ${
               isActive
                 ? "bg-caffe-gold font-semibold text-caffe-dark shadow-md shadow-caffe-gold/20"
                 : "border border-caffe-latte text-caffe-mocha hover:border-caffe-gold hover:text-caffe-gold"

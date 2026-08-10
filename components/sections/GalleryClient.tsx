@@ -19,7 +19,7 @@ function ProductCard({ product }: { product: Product }) {
   const hasImage = Boolean(product.image_url?.trim());
 
   return (
-    <article className="group relative h-full overflow-hidden rounded-xl border border-caffe-latte/15 bg-gradient-to-b from-caffe-espresso/90 to-caffe-dark/90 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:border-caffe-gold/40 hover:shadow-xl hover:shadow-caffe-dark/60">
+    <article className="group relative h-full cursor-pointer overflow-hidden rounded-xl border border-caffe-latte/15 bg-gradient-to-b from-caffe-espresso/90 to-caffe-dark/90 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:border-caffe-gold/40 hover:shadow-xl hover:shadow-caffe-dark/60">
       <div className="relative aspect-[4/3] overflow-hidden">
         {hasImage ? (
           <Image
@@ -96,7 +96,7 @@ export default function GalleryClient({ products, limit }: GalleryClientProps) {
         <Link
           href={ROUTES.cardapioCompleto}
           aria-label="Ver cardápio completo"
-          className="group inline-flex items-center gap-3 rounded-sm border border-caffe-gold/50 px-8 py-3.5 font-body text-xs font-light uppercase tracking-[0.2em] text-caffe-gold transition-all duration-500 ease-premium hover:border-caffe-gold hover:bg-caffe-gold hover:text-caffe-dark"
+          className="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-caffe-gold/50 px-8 py-3.5 font-body text-xs font-light uppercase tracking-[0.2em] text-caffe-gold transition-all duration-500 ease-premium hover:border-caffe-gold hover:bg-caffe-gold hover:text-caffe-dark"
         >
           Ver cardápio completo
           <span

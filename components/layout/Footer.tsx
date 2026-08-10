@@ -4,6 +4,7 @@ import {
   InstagramIcon,
   WhatsAppIcon,
 } from "@/components/icons/SocialIcons";
+import { MAPS_EMBED_URL, MAPS_URL } from "@/lib/maps";
 import { SITE_NAV } from "@/lib/nav";
 import { SOCIAL_LINKS } from "@/lib/social";
 
@@ -13,7 +14,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer data-snap className="bg-caffe-dark">
+    <footer className="bg-caffe-dark">
       <div
         className="h-px bg-gradient-to-r from-transparent via-caffe-gold/60 to-transparent"
         aria-hidden
@@ -21,11 +22,41 @@ export default function Footer() {
 
       <div className="py-16 sm:py-20">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 text-center md:grid-cols-2 md:text-left lg:grid-cols-3 lg:gap-16">
+          <div>
+            <div className="mb-5 flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-between sm:text-left">
+              <h3 className="font-body text-xs font-semibold uppercase tracking-[0.25em] text-caffe-gold">
+                Como chegar
+              </h3>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer font-body text-sm text-caffe-latte underline decoration-caffe-gold/50 underline-offset-4 transition-colors hover:text-caffe-gold"
+                aria-label="Abrir localização no Google Maps"
+              >
+                Abrir no Google Maps
+              </a>
+            </div>
+            <div className="overflow-hidden rounded-xl ring-1 ring-caffe-mocha/40">
+              <div className="relative aspect-[21/9] w-full min-h-[220px] sm:min-h-[280px]">
+                <iframe
+                  src={MAPS_EMBED_URL}
+                  className="absolute inset-0 h-full w-full"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localização do Caffè Schiètto no Google Maps"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 gap-12 text-center md:grid-cols-2 md:text-left lg:grid-cols-3 lg:gap-16">
             <div className="flex flex-col items-center md:items-start">
               <Link
                 href="#"
-                className="font-display text-3xl italic text-caffe-cream transition-colors hover:text-caffe-gold"
+                className="cursor-pointer font-display text-3xl italic text-caffe-cream transition-colors hover:text-caffe-gold"
                 aria-label="Caffè Schiètto — voltar ao início"
               >
                 Caffè Schiètto
@@ -54,7 +85,7 @@ export default function Footer() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="font-body text-caffe-latte transition-colors duration-300 hover:text-caffe-gold"
+                    className="cursor-pointer font-body text-caffe-latte transition-colors duration-300 hover:text-caffe-gold"
                     aria-label={item.ariaLabel}
                   >
                     {item.label}
@@ -73,7 +104,7 @@ export default function Footer() {
               </address>
               <a
                 href="tel:1938937377"
-                className="mt-4 font-body font-bold text-caffe-latte transition-colors hover:text-caffe-gold"
+                className="mt-4 cursor-pointer font-body font-bold text-caffe-latte transition-colors hover:text-caffe-gold"
                 aria-label={`Ligar para ${PRIMARY_PHONE}`}
               >
                 {PRIMARY_PHONE}
@@ -82,7 +113,7 @@ export default function Footer() {
                 href={SOCIAL_LINKS.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-sm border border-[#25D366]/60 px-4 py-2 font-body text-sm text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
+                className="mt-4 inline-flex cursor-pointer items-center gap-2 rounded-sm border border-[#25D366]/60 px-4 py-2 font-body text-sm text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
                 aria-label="Encomendar pelo WhatsApp"
               >
                 <WhatsAppIcon className="h-4 w-4" />
@@ -93,7 +124,7 @@ export default function Footer() {
                   href={SOCIAL_LINKS.whatsapp.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-caffe-latte/40 text-[#25D366] transition-colors hover:border-[#25D366] hover:bg-[#25D366]/10"
+                  className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-caffe-latte/40 text-[#25D366] transition-colors hover:border-[#25D366] hover:bg-[#25D366]/10"
                   aria-label="WhatsApp — fazer encomenda"
                 >
                   <WhatsAppIcon className="h-5 w-5" />
@@ -102,7 +133,7 @@ export default function Footer() {
                   href={SOCIAL_LINKS.instagram.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-caffe-latte/40 text-caffe-cream transition-colors hover:border-caffe-gold hover:text-caffe-gold"
+                  className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-caffe-latte/40 text-caffe-cream transition-colors hover:border-caffe-gold hover:text-caffe-gold"
                   aria-label={`Instagram ${SOCIAL_LINKS.instagram.handle}`}
                 >
                   <InstagramIcon className="h-5 w-5" />
@@ -111,7 +142,7 @@ export default function Footer() {
                   href={SOCIAL_LINKS.facebook.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-caffe-latte/40 text-caffe-cream transition-colors hover:border-caffe-gold hover:text-caffe-gold"
+                  className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-caffe-latte/40 text-caffe-cream transition-colors hover:border-caffe-gold hover:text-caffe-gold"
                   aria-label={`Facebook ${SOCIAL_LINKS.facebook.handle}`}
                 >
                   <FacebookIcon className="h-5 w-5" />

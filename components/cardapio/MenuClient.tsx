@@ -22,7 +22,7 @@ function MenuCard({ item }: { item: MenuItem }) {
   const hasImage = Boolean(item.image);
 
   return (
-    <article className="group overflow-hidden rounded-lg border border-caffe-latte/50 bg-white shadow-md shadow-caffe-espresso/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <article className="group cursor-pointer overflow-hidden rounded-lg border border-caffe-latte/50 bg-white shadow-md shadow-caffe-espresso/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="relative aspect-[4/3] overflow-hidden bg-caffe-mocha/20">
         {hasImage ? (
           <Image
@@ -83,7 +83,7 @@ function MenuPagination({
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         aria-label="Página anterior"
-        className="inline-flex items-center gap-1.5 rounded-sm border border-caffe-latte px-4 py-2 font-body text-sm text-caffe-mocha transition-colors hover:border-caffe-gold hover:text-caffe-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-caffe-latte disabled:hover:text-caffe-mocha"
+        className="inline-flex cursor-pointer items-center gap-1.5 rounded-sm border border-caffe-latte px-4 py-2 font-body text-sm text-caffe-mocha transition-colors hover:border-caffe-gold hover:text-caffe-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-caffe-latte disabled:hover:text-caffe-mocha"
       >
         <ChevronLeft size={18} strokeWidth={1.5} aria-hidden />
         Anterior
@@ -97,7 +97,7 @@ function MenuPagination({
             onClick={() => onPageChange(page)}
             aria-label={`Ir para página ${page}`}
             aria-current={page === currentPage ? "page" : undefined}
-            className={`flex h-9 min-w-9 items-center justify-center rounded-sm px-2 font-body text-sm transition-colors ${
+            className={`flex h-9 min-w-9 cursor-pointer items-center justify-center rounded-sm px-2 font-body text-sm transition-colors ${
               page === currentPage
                 ? "bg-caffe-gold font-semibold text-caffe-dark"
                 : "border border-caffe-latte text-caffe-mocha hover:border-caffe-gold hover:text-caffe-gold"
@@ -113,7 +113,7 @@ function MenuPagination({
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         aria-label="Próxima página"
-        className="inline-flex items-center gap-1.5 rounded-sm border border-caffe-latte px-4 py-2 font-body text-sm text-caffe-mocha transition-colors hover:border-caffe-gold hover:text-caffe-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-caffe-latte disabled:hover:text-caffe-mocha"
+        className="inline-flex cursor-pointer items-center gap-1.5 rounded-sm border border-caffe-latte px-4 py-2 font-body text-sm text-caffe-mocha transition-colors hover:border-caffe-gold hover:text-caffe-gold disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-caffe-latte disabled:hover:text-caffe-mocha"
       >
         Próxima
         <ChevronRight size={18} strokeWidth={1.5} aria-hidden />

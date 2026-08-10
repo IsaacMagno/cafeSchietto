@@ -61,7 +61,7 @@ function PillarCard({
   ariaLabel,
 }: (typeof PILLARS)[number] & { index: number }) {
   const cardClassName =
-    "group relative block min-h-[220px] overflow-hidden rounded-xl shadow-md shadow-caffe-espresso/10 ring-1 ring-caffe-espresso/10 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:shadow-xl hover:shadow-caffe-espresso/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-caffe-gold sm:min-h-[260px] lg:min-h-[300px]";
+    "group relative block min-h-[220px] cursor-pointer overflow-hidden rounded-xl shadow-md shadow-caffe-espresso/10 ring-1 ring-caffe-espresso/10 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:shadow-xl hover:shadow-caffe-espresso/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-caffe-gold sm:min-h-[260px] lg:min-h-[300px]";
 
   const content = (
     <>
@@ -122,7 +122,6 @@ export default function About() {
   return (
     <section
       id="sobre"
-      data-snap
       className="bg-caffe-cream py-24 sm:py-28 lg:py-36"
     >
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">

@@ -41,7 +41,7 @@ function CardIcon({ children }: { children: React.ReactNode }) {
 
 export default function Location() {
   return (
-    <section id="localizacao" data-snap>
+    <section id="localizacao">
       <div className="relative flex min-h-screen items-center overflow-hidden bg-caffe-espresso py-24 sm:py-28">
         <div
           className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-caffe-gold/40 to-transparent"
@@ -112,7 +112,7 @@ export default function Location() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-block rounded-sm border border-caffe-gold/70 px-6 py-3 font-body text-xs font-light uppercase tracking-[0.16em] text-caffe-gold transition-all duration-500 ease-premium hover:bg-caffe-gold hover:text-caffe-dark"
+                className="mt-8 inline-block cursor-pointer rounded-sm border border-caffe-gold/70 px-6 py-3 font-body text-xs font-light uppercase tracking-[0.16em] text-caffe-gold transition-all duration-500 ease-premium hover:bg-caffe-gold hover:text-caffe-dark"
                 aria-label="Abrir localização no Google Maps"
               >
                 Ver no Google Maps
@@ -131,7 +131,7 @@ export default function Location() {
                   <li key={phone}>
                     <a
                       href={`tel:${phone.replace(/\D/g, "")}`}
-                      className="font-body text-lg font-bold text-caffe-cream transition-colors duration-300 hover:text-caffe-gold"
+                      className="cursor-pointer font-body text-lg font-bold text-caffe-cream transition-colors duration-300 hover:text-caffe-gold"
                       aria-label={`Ligar para ${phone}`}
                     >
                       {phone}
@@ -143,7 +143,7 @@ export default function Location() {
                 href={SOCIAL_LINKS.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white transition-all duration-500 ease-premium hover:bg-[#20bd5a] hover:shadow-lg hover:shadow-[#25D366]/20"
+                className="mt-8 inline-flex cursor-pointer items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white transition-all duration-500 ease-premium hover:bg-[#20bd5a] hover:shadow-lg hover:shadow-[#25D366]/20"
                 aria-label="Fazer encomenda pelo WhatsApp"
               >
                 Encomendar pelo WhatsApp

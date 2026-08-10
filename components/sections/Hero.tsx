@@ -4,10 +4,7 @@ import { SITE_IMAGES } from "@/lib/images";
 
 export default function Hero() {
   return (
-    <section
-      data-snap
-      className="relative flex min-h-screen min-h-[100dvh] w-full max-w-[100vw] flex-col items-center justify-center overflow-hidden bg-caffe-espresso"
-    >
+    <section className="relative flex min-h-screen min-h-[100dvh] w-full max-w-[100vw] flex-col items-center justify-center overflow-hidden bg-caffe-espresso">
       <div className="animate-hero-zoom absolute inset-0">
         <Image
           src={SITE_IMAGES.ambiente.hero}

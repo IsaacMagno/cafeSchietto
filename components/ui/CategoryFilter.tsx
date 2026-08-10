@@ -29,7 +29,7 @@ export default function CategoryFilter({
             onClick={() => onChange(filter.value)}
             aria-label={`Filtrar por ${filter.label}`}
             aria-pressed={isActive}
-            className={`rounded-full px-5 py-2.5 font-body text-xs uppercase tracking-[0.14em] transition-all duration-500 ease-premium sm:px-6 ${
+            className={`cursor-pointer rounded-full px-5 py-2.5 font-body text-xs uppercase tracking-[0.14em] transition-all duration-500 ease-premium sm:px-6 ${
               isActive
                 ? "bg-caffe-gold font-semibold text-caffe-dark shadow-md shadow-caffe-gold/25"
                 : "border border-caffe-latte/40 font-light text-caffe-latte hover:border-caffe-gold/70 hover:text-caffe-gold"

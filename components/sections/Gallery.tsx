@@ -8,7 +8,6 @@ export default function Gallery() {
   return (
     <section
       id="cardapio"
-      data-snap
       className="relative overflow-hidden bg-caffe-dark py-24 sm:py-28 lg:py-36"
     >
       <div
