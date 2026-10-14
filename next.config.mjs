@@ -1,19 +1,23 @@
 const isDev = process.env.NODE_ENV === "development";
 
 function buildCsp() {
+  const clarityScript =
+    "https://www.clarity.ms https://scripts.clarity.ms https://*.clarity.ms";
+  const clarityConnect = "https://*.clarity.ms https://c.bing.com";
+
   const scriptSrc = isDev
-    ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
-    : "script-src 'self' 'unsafe-inline'";
+    ? `script-src 'self' 'unsafe-inline' 'unsafe-eval' ${clarityScript}`
+    : `script-src 'self' 'unsafe-inline' ${clarityScript}`;
 
   const connectSrc = isDev
-    ? "connect-src 'self' ws: wss:"
-    : "connect-src 'self'";
+    ? `connect-src 'self' ws: wss: ${clarityConnect}`
+    : `connect-src 'self' ${clarityConnect}`;
 
   const directives = [
     "default-src 'self'",
     scriptSrc,
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: https://images.unsplash.com https://visitesocorrosp.com.br",
+    "img-src 'self' data: https://images.unsplash.com https://visitesocorrosp.com.br https://*.clarity.ms https://c.bing.com",
     "font-src 'self'",
     "frame-src https://www.google.com",
     connectSrc,
