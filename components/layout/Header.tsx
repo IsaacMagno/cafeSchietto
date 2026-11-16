@@ -4,14 +4,19 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/SocialIcons";
 import { SITE_IMAGES } from "@/lib/images";
 import { ROUTES } from "@/lib/routes";
-import { HOME_DECOR_URL } from "@/lib/social";
+import { WHATSAPP_LINKS } from "@/lib/social";
 
 const NAV_LINKS = [
   { label: "Sobre", href: "#sobre", ariaLabel: "Ir para a seção Sobre" },
   { label: "Cardápio", href: "#cardapio", ariaLabel: "Ir para o cardápio" },
-  { label: "Redes", href: "#redes", ariaLabel: "Ir para redes sociais" },
+  {
+    label: "Reservas",
+    href: "#reservas",
+    ariaLabel: "Ir para reservas e encomendas",
+  },
   {
     label: "Localização",
     href: "#localizacao",
@@ -50,6 +55,28 @@ function NavLink({
         className="absolute -bottom-1 left-0 h-px w-0 bg-caffe-gold transition-all duration-300 ease-out group-hover:w-full"
         aria-hidden
       />
+    </a>
+  );
+}
+
+function ReserveLink({
+  onClick,
+  className = "",
+}: {
+  onClick?: () => void;
+  className?: string;
+}) {
+  return (
+    <a
+      href={WHATSAPP_LINKS.reserva}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onClick}
+      aria-label="Reservar mesa pelo WhatsApp"
+      className={`inline-flex w-fit cursor-pointer items-center gap-2 rounded-sm border border-caffe-gold/70 font-body text-xs uppercase tracking-[0.16em] text-caffe-cream transition-all duration-300 hover:border-caffe-gold hover:bg-caffe-gold hover:text-caffe-dark ${className}`}
+    >
+      <WhatsAppIcon className="h-4 w-4" />
+      Reservar mesa
     </a>
   );
 }
@@ -125,14 +152,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center lg:flex">
-          <a
-            href={HOME_DECOR_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cursor-pointer rounded-sm border border-caffe-cream/35 px-5 py-2 font-body text-xs font-light uppercase tracking-[0.16em] text-caffe-cream transition-all duration-300 hover:border-caffe-gold hover:text-caffe-gold"
-          >
-            Home Decor
-          </a>
+          <ReserveLink className="px-5 py-2" />
         </div>
 
         <button
@@ -152,7 +172,7 @@ export default function Header() {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-out lg:hidden ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <nav
@@ -169,15 +189,7 @@ export default function Header() {
               className="text-lg"
             />
           ))}
-          <a
-            href={HOME_DECOR_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={closeMenu}
-            className="inline-flex w-fit cursor-pointer rounded-sm border border-caffe-cream/35 px-5 py-2.5 font-body text-xs font-light uppercase tracking-[0.16em] text-caffe-cream transition-all duration-300 hover:border-caffe-gold hover:text-caffe-gold"
-          >
-            Home Decor
-          </a>
+          <ReserveLink onClick={closeMenu} className="px-5 py-3" />
         </nav>
       </div>
     </header>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookiePreferencesButton from "@/components/analytics/CookiePreferencesButton";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -6,11 +7,17 @@ import {
 } from "@/components/icons/SocialIcons";
 import { MAPS_EMBED_URL, MAPS_URL } from "@/lib/maps";
 import { SITE_NAV } from "@/lib/nav";
-import { SOCIAL_LINKS } from "@/lib/social";
-
-const PRIMARY_PHONE = "(19) 3893-7377";
+import {
+  HOME_DECOR_URL,
+  PHONES,
+  PORTAL_URL,
+  SOCIAL_LINKS,
+} from "@/lib/social";
 
 const CURRENT_YEAR = new Date().getFullYear();
+
+const quietLink =
+  "cursor-pointer transition-colors duration-300 hover:text-caffe-gold";
 
 export default function Footer() {
   return (
@@ -55,7 +62,7 @@ export default function Footer() {
           <div className="mt-14 grid grid-cols-1 gap-12 text-center md:grid-cols-2 md:text-left lg:grid-cols-3 lg:gap-16">
             <div className="flex flex-col items-center md:items-start">
               <Link
-                href="#"
+                href="/#"
                 className="cursor-pointer font-display text-3xl italic text-caffe-cream transition-colors hover:text-caffe-gold"
                 aria-label="Caffè Schiètto — voltar ao início"
               >
@@ -66,11 +73,26 @@ export default function Footer() {
                 aria-hidden
               />
               <p className="mt-4 font-body text-sm font-light text-caffe-latte">
-                Cafeteria Gourmet | Pedreira, SP
+                Cafeteria | Pedreira, SP
               </p>
-              <p className="mt-2 font-body text-sm text-caffe-mocha">
-                Desde 2016 ♥
+              <p className="mt-2 font-body text-sm text-caffe-latte/70">
+                Desde 2016
               </p>
+
+              {/* Menção discreta à loja, que fica no mesmo endereço */}
+              <div className="mt-8 border-t border-caffe-mocha/40 pt-5">
+                <p className="font-body text-xs text-caffe-latte/60">
+                  No mesmo endereço:
+                </p>
+                <a
+                  href={HOME_DECOR_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-1 inline-block font-body text-sm font-light text-caffe-latte/80 ${quietLink}`}
+                >
+                  Schiètto Home Decor
+                </a>
+              </div>
             </div>
 
             <div className="flex flex-col items-center md:items-start">
@@ -102,33 +124,29 @@ export default function Footer() {
                 <p>Rua Primo Frazato, 30</p>
                 <p>Centro — Pedreira, SP</p>
               </address>
-              <a
-                href="tel:1938937377"
-                className="mt-4 cursor-pointer font-body font-bold text-caffe-latte transition-colors hover:text-caffe-gold"
-                aria-label={`Ligar para ${PRIMARY_PHONE}`}
-              >
-                {PRIMARY_PHONE}
-              </a>
+              <ul className="mt-4 space-y-1">
+                {PHONES.map((phone) => (
+                  <li key={phone}>
+                    <a
+                      href={`tel:+55${phone.replace(/\D/g, "")}`}
+                      className="cursor-pointer font-body font-bold text-caffe-latte transition-colors hover:text-caffe-gold"
+                      aria-label={`Ligar para ${phone}`}
+                    >
+                      {phone}
+                    </a>
+                  </li>
+                ))}
+              </ul>
               <a
                 href={SOCIAL_LINKS.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex cursor-pointer items-center gap-2 rounded-sm border border-[#25D366]/60 px-4 py-2 font-body text-sm text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
-                aria-label="Encomendar pelo WhatsApp"
+                className="mt-5 inline-flex cursor-pointer items-center gap-2 rounded-sm bg-[#25D366] px-5 py-2.5 font-body text-sm font-bold text-caffe-dark transition-colors hover:bg-[#1fb857]"
               >
                 <WhatsAppIcon className="h-4 w-4" />
-                Encomendar pelo WhatsApp
+                Chamar no WhatsApp
               </a>
               <div className="mt-6 flex items-center justify-center gap-4 md:justify-start">
-                <a
-                  href={SOCIAL_LINKS.whatsapp.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-caffe-latte/40 text-[#25D366] transition-colors hover:border-[#25D366] hover:bg-[#25D366]/10"
-                  aria-label="WhatsApp — fazer encomenda"
-                >
-                  <WhatsAppIcon className="h-5 w-5" />
-                </a>
                 <a
                   href={SOCIAL_LINKS.instagram.href}
                   target="_blank"
@@ -151,10 +169,21 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-14 border-t border-caffe-mocha/40 pt-8">
-            <p className="text-center font-body text-xs font-light tracking-wide text-caffe-latte/60">
+          <div className="mt-14 border-t border-caffe-mocha/40 pt-8 text-center font-body text-xs font-light tracking-wide text-caffe-latte/60">
+            <p>
               © {CURRENT_YEAR} Caffè Schiètto · Todos os direitos reservados ·
               Pedreira, SP
+            </p>
+            <p className="mt-2">
+              <a href={PORTAL_URL} className={quietLink}>
+                Conheça todos os espaços Schiètto
+              </a>
+            </p>
+            <p className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+              <Link href="/privacidade" className={quietLink}>
+                Política de Privacidade
+              </Link>
+              <CookiePreferencesButton />
             </p>
           </div>
         </div>
