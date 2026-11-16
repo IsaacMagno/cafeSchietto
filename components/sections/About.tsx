@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedReveal from "@/components/ui/AnimatedReveal";
+import Tilt from "@/components/ui/Tilt";
 import { SITE_IMAGES } from "@/lib/images";
 import { GOOGLE_REVIEWS_URL, MAPS_URL } from "@/lib/maps";
 import { menuImage } from "@/lib/menu-images";
@@ -134,7 +135,7 @@ export default function About() {
               </p>
               <h2 className="mt-5 font-display text-3xl font-bold leading-[1.15] text-caffe-espresso sm:text-4xl lg:text-5xl">
                 Muito além de{" "}
-                <span className="italic font-medium text-caffe-gold">
+                <span className="italic font-medium text-caffe-bronze">
                   um café
                 </span>
               </h2>
@@ -148,8 +149,8 @@ export default function About() {
                 proporciona.
               </p>
               <p className="mt-5 font-body text-base font-light leading-[1.9] text-caffe-mocha lg:text-lg">
-                Somos uma cafeteria gourmet especializada, com foco em bebidas
-                artesanais e sobremesas cuidadosamente preparadas. Seja você um
+                Aqui o café é espresso, tirado na hora em grãos 100% arábica, e
+                acompanha sobremesas cuidadosamente preparadas. Seja você um
                 morador local ou um turista descobrindo a cidade, queremos que
                 cada visita se torne uma memória boa.
               </p>
@@ -207,7 +208,9 @@ export default function About() {
         <div className="mt-16 grid grid-cols-1 gap-4 sm:mt-20 sm:grid-cols-2 sm:gap-5 lg:mt-24 lg:grid-cols-4 lg:gap-6">
           {PILLARS.map((pillar, index) => (
             <AnimatedReveal key={pillar.title} delay={index * 120}>
-              <PillarCard {...pillar} index={index} />
+              <Tilt className="rounded-xl">
+                <PillarCard {...pillar} index={index} />
+              </Tilt>
             </AnimatedReveal>
           ))}
         </div>
