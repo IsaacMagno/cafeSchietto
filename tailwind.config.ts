@@ -9,13 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Cores da logo: marrom cacau e dourado.
         caffe: {
-          espresso: "#2C1A0E",
+          espresso: "#34130C",
           mocha: "#5C3D1E",
           latte: "#C8A882",
           cream: "#F5ECD7",
-          gold: "#B8912A",
-          dark: "#1A0F07",
+          gold: "#D08F32",
+          // Dourado escuro: o único que dá leitura como TEXTO sobre o creme.
+          bronze: "#8A5A12",
+          dark: "#1E0B06",
         },
       },
       fontFamily: {

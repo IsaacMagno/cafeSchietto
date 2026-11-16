@@ -5,19 +5,23 @@ function buildCsp() {
     "https://www.clarity.ms https://scripts.clarity.ms https://*.clarity.ms";
   const clarityConnect = "https://*.clarity.ms https://c.bing.com";
 
+  // Pixel da Meta: só é carregado se houver NEXT_PUBLIC_META_PIXEL_ID e aceite.
+  const metaScript = "https://connect.facebook.net";
+  const metaConnect = "https://www.facebook.com https://connect.facebook.net";
+
   const scriptSrc = isDev
-    ? `script-src 'self' 'unsafe-inline' 'unsafe-eval' ${clarityScript}`
-    : `script-src 'self' 'unsafe-inline' ${clarityScript}`;
+    ? `script-src 'self' 'unsafe-inline' 'unsafe-eval' ${clarityScript} ${metaScript}`
+    : `script-src 'self' 'unsafe-inline' ${clarityScript} ${metaScript}`;
 
   const connectSrc = isDev
-    ? `connect-src 'self' ws: wss: ${clarityConnect}`
-    : `connect-src 'self' ${clarityConnect}`;
+    ? `connect-src 'self' ws: wss: ${clarityConnect} ${metaConnect}`
+    : `connect-src 'self' ${clarityConnect} ${metaConnect}`;
 
   const directives = [
     "default-src 'self'",
     scriptSrc,
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: https://images.unsplash.com https://visitesocorrosp.com.br https://*.clarity.ms https://c.bing.com",
+    "img-src 'self' data: https://images.unsplash.com https://visitesocorrosp.com.br https://*.clarity.ms https://c.bing.com https://www.facebook.com",
     "font-src 'self'",
     "frame-src https://www.google.com",
     connectSrc,
