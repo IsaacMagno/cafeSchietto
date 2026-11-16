@@ -48,7 +48,7 @@ function MenuCard({ item }: { item: MenuItem }) {
           <h3 className="font-display text-lg font-bold leading-tight text-caffe-espresso">
             {item.name}
           </h3>
-          <span className="shrink-0 font-body text-sm font-bold text-caffe-gold">
+          <span className="shrink-0 font-body text-sm font-bold text-caffe-bronze">
             {item.price}
           </span>
         </div>
