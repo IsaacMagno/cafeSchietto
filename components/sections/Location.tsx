@@ -1,15 +1,16 @@
 import { Clock, MapPin, Phone } from "lucide-react";
 import AnimatedReveal from "@/components/ui/AnimatedReveal";
 import AnimatedSectionHeader from "@/components/ui/AnimatedSectionHeader";
+import { WhatsAppIcon } from "@/components/icons/SocialIcons";
+import OpenNow from "@/components/ui/OpenNow";
 import { MAPS_URL } from "@/lib/maps";
-import { SOCIAL_LINKS } from "@/lib/social";
+import { PHONES, SOCIAL_LINKS } from "@/lib/social";
 
+// Mantenha em sincronia com OpenNow.tsx e CafeJsonLd.tsx.
 const HOURS = [
-  { label: "Segunda a Sexta", time: "09h00 às 18h00" },
-  { label: "Sábado e Domingo", time: "08h30 às 18h00" },
+  { label: "Segunda a sexta", time: "09h00 às 18h00" },
+  { label: "Sábado, domingo e feriados", time: "08h30 às 18h00" },
 ] as const;
-
-const PHONES = ["(19) 3893-7377", "(19) 3852-2356"] as const;
 
 function CardShell({
   children,
@@ -87,9 +88,9 @@ export default function Location() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 font-body text-sm font-light italic text-caffe-latte/70">
-                Feriados: podem ter alteração
-              </p>
+              <div className="mt-5 min-h-5">
+                <OpenNow className="text-caffe-latte" />
+              </div>
             </CardShell>
 
             <CardShell delay={120}>
@@ -130,7 +131,7 @@ export default function Location() {
                 {PHONES.map((phone) => (
                   <li key={phone}>
                     <a
-                      href={`tel:${phone.replace(/\D/g, "")}`}
+                      href={`tel:+55${phone.replace(/\D/g, "")}`}
                       className="cursor-pointer font-body text-lg font-bold text-caffe-cream transition-colors duration-300 hover:text-caffe-gold"
                       aria-label={`Ligar para ${phone}`}
                     >
@@ -143,10 +144,10 @@ export default function Location() {
                 href={SOCIAL_LINKS.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex cursor-pointer items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white transition-all duration-500 ease-premium hover:bg-[#20bd5a] hover:shadow-lg hover:shadow-[#25D366]/20"
-                aria-label="Fazer encomenda pelo WhatsApp"
+                className="mt-8 inline-flex cursor-pointer items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] text-caffe-dark transition-all duration-500 ease-premium hover:bg-[#20bd5a] hover:shadow-lg hover:shadow-[#25D366]/20"
               >
-                Encomendar pelo WhatsApp
+                <WhatsAppIcon className="h-4 w-4" />
+                Chamar no WhatsApp
               </a>
             </CardShell>
           </div>
