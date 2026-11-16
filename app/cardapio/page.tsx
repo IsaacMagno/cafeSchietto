@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import MenuClient from "@/components/cardapio/MenuClient";
+import { WhatsAppIcon } from "@/components/icons/SocialIcons";
+import { WHATSAPP_LINKS } from "@/lib/social";
 import { FULL_MENU_CATALOG } from "@/lib/full-menu-catalog";
 import { parseMenuCategoryFilter } from "@/lib/menu-categories";
 
@@ -7,6 +9,7 @@ export const metadata: Metadata = {
   title: "Cardápio Completo | Caffè Schiètto",
   description:
     "Cardápio completo do Caffè Schiètto — cafés, chocolates, salgados, sobremesas, bebidas e muito mais em Pedreira, SP.",
+  alternates: { canonical: "/cardapio" },
 };
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -50,8 +53,27 @@ export default async function CardapioPage({
         </div>
       </main>
 
-      <footer className="border-t border-caffe-latte/60 bg-caffe-espresso py-6 text-center">
-        <p className="font-body text-xs text-caffe-latte/70">
+      <footer className="border-t border-caffe-latte/60 bg-caffe-espresso px-4 py-8 text-center">
+        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <a
+            href={WHATSAPP_LINKS.reserva}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full max-w-xs cursor-pointer items-center justify-center gap-2 rounded-sm bg-[#25D366] px-6 py-3 font-body text-sm font-bold text-caffe-dark transition-colors hover:bg-[#1fb857] sm:w-auto"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+            Reservar mesa
+          </a>
+          <a
+            href={WHATSAPP_LINKS.encomenda}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full max-w-xs cursor-pointer items-center justify-center gap-2 rounded-sm border border-caffe-gold/70 px-6 py-3 font-body text-sm text-caffe-cream transition-colors hover:bg-caffe-gold hover:text-caffe-dark sm:w-auto"
+          >
+            Encomendar bolo ou doces
+          </a>
+        </div>
+        <p className="mt-6 font-body text-xs text-caffe-latte/70">
           Preços sujeitos a alteração · Não cobramos 10% de taxa de serviço
         </p>
       </footer>
